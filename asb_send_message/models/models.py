@@ -29,5 +29,5 @@ class PurchaseOrder(models.Model):
         body = "PO Create, please check! " + "<a href='#id=%s&model=purchase.order&'>%s</a>" % (self.id, self.name)
         for rec in direct_massage:
             # mengirim message
-            rec.message_post(body=body, content_subtype='html', message_type='notification', subtype_xmlid='mail.mt_comment')
+            rec.message_post(body=body, message_type='notification', subtype_xmlid='mail.mt_comment')
         return
