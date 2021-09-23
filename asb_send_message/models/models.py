@@ -26,9 +26,7 @@ class PurchaseOrder(models.Model):
         # mendifinisikan record direct massage yang akan menerima pesan
         direct_massage = self.env.ref('asb_send_message.purchase_order_room')
         # mendefinisikan pesan yang akan dikirim
-        message = "PO Create, please check!"
-       # menambahkan pesan dengan link dokumen Purchase Order
-        body = message + " <a href='#id=%s&model=purchase.order&'>%s</a>" % (self.id, self.name)
+        body = "PO Create, please check! " + "<a href='#id=%s&model=purchase.order&'>%s</a>" % (self.id, self.name)
         for rec in direct_massage:
             # mengirim message
             rec.message_post(attachment_ids=[], body=body, content_subtype='html', message_type='comment', partner_ids=[], subtype_xmlid='mail.mt_comment')
