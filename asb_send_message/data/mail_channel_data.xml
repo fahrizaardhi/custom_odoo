@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_order_room" model="mail.channel">
+            <field name="name">Purchase Order Room</field>
+            <field name="channel_type">chat</field>
+            <field name="group_ids" eval="[(4, ref('purchase.group_purchase_manager')),(4, ref('purchase.group_purchase_user'))]" />
+        </record>
+    </data>
+</odoo>
